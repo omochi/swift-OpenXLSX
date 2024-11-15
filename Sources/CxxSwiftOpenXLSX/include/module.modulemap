@@ -1,0 +1,5 @@
+module CxxSwiftXLSX {
+    header "CxxOpenXLSX.hpp"
+    export *
+    requires cplusplus
+}
