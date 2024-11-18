@@ -1,5 +1,5 @@
 {
-  "originHash" : "2f39754fb0c969fe752a3dd6a0a78fd6d50f27166230e53a9e14b928246f68ce",
+  "originHash" : "42d827bf946b2ea6353f09ccbdb4caab5e68c79f39a69d361a50e7c3795e5a97",
   "pins" : [
     {
       "identity" : "openxlsx",
@@ -7,7 +7,7 @@
       "location" : "https://github.com/omochi/OpenXLSX.git",
       "state" : {
         "branch" : "swiftpm",
-        "revision" : "8e316bd722c582a125afb8d787f9a71d0715f148"
+        "revision" : "d2fe08fc44df5b1acbd5474538d35668bd72c1dc"
       }
     }
   ],

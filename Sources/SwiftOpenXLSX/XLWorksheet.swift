@@ -19,14 +19,11 @@ public struct XLWorksheet {
     }
 
     public func cell(_ reference: XLCellReference) throws -> XLCell {
-        let cell: OpenXLSX.XLCellAssignable = try withCxxOptionalOrException { (e) in
+        let cell = try withCxxOptionalOrException { (e) in
             XLWorksheet_cell(worksheet, reference.ref, &e)
         }
 
-        return XLCell(
-            document: document,
-            cell: XLCellAssignable_asXLCell(cell)
-        )
+        return XLCell(document: document, cell: cell)
     }
 
     public func cell(row: Int, column: Int) throws -> XLCell {

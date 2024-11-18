@@ -2,10 +2,6 @@
 
 using namespace OpenXLSX;
 
-OpenXLSX::XLCell XLCellAssignable_asXLCell(const OpenXLSX::XLCellAssignable & self) {
-    return self;
-}
-
 OpenXLSX::XLCellValue XLCell_value(const OpenXLSX::XLCell &self) {
     return self.value();
 }

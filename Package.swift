@@ -8,6 +8,7 @@ let package = Package(
     ],
     dependencies: [
         .package(url: "https://github.com/omochi/OpenXLSX.git", branch: "swiftpm")
+//        .package(path: "/Users/omochi/github/troldal/OpenXLSX")
     ],
     targets: [
         .target(

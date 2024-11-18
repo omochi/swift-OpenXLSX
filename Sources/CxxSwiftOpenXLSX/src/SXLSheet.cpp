@@ -26,7 +26,7 @@ void XLWorksheet_setName(const OpenXLSX::XLWorksheet &self, const std::string & 
     const_cast<XLWorksheet &>(self).setName(name);
 }
 
-std::optional<OpenXLSX::XLCellAssignable> XLWorksheet_cell(const OpenXLSX::XLWorksheet &self, const OpenXLSX::XLCellReference& ref, std::optional<std::string> & error) {
+std::optional<OpenXLSX::XLCell> XLWorksheet_cell(const OpenXLSX::XLWorksheet &self, const OpenXLSX::XLCellReference& ref, std::optional<std::string> & error) {
     try {
         return self.cell(ref);
     } catch (const std::exception & e) {
