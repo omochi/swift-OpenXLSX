@@ -7,7 +7,7 @@ let package = Package(
         .library(name: "SwiftOpenXLSX", targets: ["SwiftOpenXLSX"])
     ],
     dependencies: [
-        .package(url: "https://github.com/omochi/OpenXLSX.git", branch: "swiftpm")
+        .package(url: "https://github.com/omochi/OpenXLSX.git", branch: "include-out-ns")
 //        .package(path: "/Users/omochi/github/troldal/OpenXLSX")
     ],
     targets: [

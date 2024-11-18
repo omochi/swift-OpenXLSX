@@ -1,13 +1,13 @@
 {
-  "originHash" : "42d827bf946b2ea6353f09ccbdb4caab5e68c79f39a69d361a50e7c3795e5a97",
+  "originHash" : "0278473f3a0d6077f3b8c70b5ebd23ee21b7849eb56362bfd64e0f3c4605a9f5",
   "pins" : [
     {
       "identity" : "openxlsx",
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/omochi/OpenXLSX.git",
       "state" : {
-        "branch" : "swiftpm",
-        "revision" : "d2fe08fc44df5b1acbd5474538d35668bd72c1dc"
+        "branch" : "include-out-ns",
+        "revision" : "3c1de2a6c8c0fa38502e3a90a83df5eead5c67f1"
       }
     }
   ],
