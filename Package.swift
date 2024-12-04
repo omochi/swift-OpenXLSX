@@ -4,10 +4,11 @@ import PackageDescription
 let package = Package(
     name: "swift-OpenXLSX",
     products: [
-        .library(name: "SwiftOpenXLSX", targets: ["SwiftOpenXLSX"])
+        .library(name: "SwiftOpenXLSX", targets: ["SwiftOpenXLSX"]),
+        .executable(name: "foo", targets: ["foo"])
     ],
     dependencies: [
-        .package(url: "https://github.com/omochi/OpenXLSX.git", branch: "include-out-ns")
+        .package(url: "https://github.com/omochi/OpenXLSX.git", branch: "swiftpm")
 //        .package(path: "/Users/omochi/github/troldal/OpenXLSX")
     ],
     targets: [
@@ -30,7 +31,7 @@ let package = Package(
             swiftSettings: [
                 .interoperabilityMode(.Cxx)
             ]
-        )
+        ),
     ],
     cxxLanguageStandard: .cxx17
 )
