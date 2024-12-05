@@ -4,8 +4,7 @@ import PackageDescription
 let package = Package(
     name: "swift-OpenXLSX",
     products: [
-        .library(name: "SwiftOpenXLSX", targets: ["SwiftOpenXLSX"]),
-        .executable(name: "foo", targets: ["foo"])
+        .library(name: "SwiftOpenXLSX", targets: ["SwiftOpenXLSX"])
     ],
     dependencies: [
         .package(url: "https://github.com/omochi/OpenXLSX.git", branch: "swiftpm")
