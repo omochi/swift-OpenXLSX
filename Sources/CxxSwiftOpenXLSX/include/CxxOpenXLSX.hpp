@@ -1,4 +1,6 @@
 #include "./SXLCell.hpp"
+#include "./SXLCellFormat.hpp"
+#include "./SXLCellFormats.hpp"
 #include "./SXLCellValue.hpp"
 #include "./SXLCellReference.hpp"
 #include "./SXLCommon.hpp"
@@ -6,4 +8,5 @@
 #include "./SXLException.hpp"
 #include "./SXLFormula.hpp"
 #include "./SXLSheet.hpp"
+#include "./SXLStyles.hpp"
 #include "./SXLWorkbook.hpp"

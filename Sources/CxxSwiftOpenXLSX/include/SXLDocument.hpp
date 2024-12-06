@@ -19,3 +19,5 @@ void XLDocument_saveAs(OpenXLSX::XLDocument &self, const std::string& fileName, 
 OpenXLSX::XLWorkbook XLDocument_workbook(const OpenXLSX::XLDocument &self);
 
 bool XLDocument_isOpen(const OpenXLSX::XLDocument &self);
+
+OpenXLSX::XLStyles & XLDocument_styles(OpenXLSX::XLDocument &self);
