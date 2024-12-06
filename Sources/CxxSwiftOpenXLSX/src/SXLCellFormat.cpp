@@ -2,14 +2,18 @@
 
 using namespace OpenXLSX;
 
-std::optional<uint32_t> XLCellFormat_numberFormatId(const OpenXLSX::XLCellFormat & self) {
-    uint32_t id = self.numberFormatId();
-    if (id == OpenXLSX::XLInvalidUInt32) {
-        return std::nullopt;
-    }
-    return id;
+uint32_t XLCellFormat_numberFormatId(const OpenXLSX::XLCellFormat & self) {
+    return self.numberFormatId();
 }
 
-void XLCellFormat_setNumberFormatId(OpenXLSX::XLCellFormat & self, uint32_t value) {
-    self.setNumberFormatId(value);
+void XLCellFormat_setNumberFormatId(const OpenXLSX::XLCellFormat & self, uint32_t value) {
+    const_cast<OpenXLSX::XLCellFormat &>(self).setNumberFormatId(value);
+}
+
+bool XLCellFormat_applyNumberFormat(const OpenXLSX::XLCellFormat & self) {
+    return self.applyNumberFormat();
+}
+
+void XLCellFormat_setApplyNumberFormat(const OpenXLSX::XLCellFormat & self, bool value) {
+    const_cast<OpenXLSX::XLCellFormat &>(self).setApplyNumberFormat(value);
 }

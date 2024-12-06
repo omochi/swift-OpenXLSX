@@ -20,6 +20,48 @@ public enum XLCellValue: CustomStringConvertible {
         }
     }
 
+    public var empty: Bool {
+        switch self {
+        case .empty: return true
+        default: return false
+        }
+    }
+
+    public var boolean: Bool? {
+        switch self {
+        case .boolean(let x): return x
+        default: return nil
+        }
+    }
+
+    public var integer: Int? {
+        switch self {
+        case .integer(let x): return x
+        default: return nil
+        }
+    }
+
+    public var float: Double? {
+        switch self {
+        case .float(let x): return x
+        default: return nil
+        }
+    }
+
+    public var error: String? {
+        switch self {
+        case .error(let x): return x
+        default: return nil
+        }
+    }
+
+    public var string: String? {
+        switch self {
+        case .string(let x): return x
+        default: return nil
+        }
+    }
+
     var value: OpenXLSX.XLCellValue {
         switch self {
         case .empty: return XLCellValue_initEmpty()
