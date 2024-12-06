@@ -21,3 +21,11 @@ OpenXLSX::XLFormula XLCell_formula(const OpenXLSX::XLCell &self) {
 void XLCell_setFormula(const OpenXLSX::XLCell &self, const OpenXLSX::XLFormula &value) {
     const_cast<XLCell &>(self).formula() = value;
 }
+
+size_t XLCell_cellFormat(const OpenXLSX::XLCell &self) {
+    return self.cellFormat();
+}
+
+void XLCell_setCellFormat(const OpenXLSX::XLCell &self, size_t index) {
+    const_cast<XLCell &>(self).setCellFormat(index);
+}

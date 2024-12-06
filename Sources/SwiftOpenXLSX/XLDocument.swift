@@ -70,4 +70,11 @@ public final class XLDocument {
     public var isOpen: Bool {
         XLDocument_isOpen(document.pointee)
     }
+
+    public var styles: XLStyles {
+        return XLStyles(
+            document: self,
+            styles: XLDocument_styles(&document.pointee)
+        )
+    }
 }

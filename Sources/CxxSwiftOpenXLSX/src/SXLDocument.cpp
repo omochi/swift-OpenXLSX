@@ -53,3 +53,7 @@ OpenXLSX::XLWorkbook XLDocument_workbook(const OpenXLSX::XLDocument &self) {
 bool XLDocument_isOpen(const OpenXLSX::XLDocument &self) {
     return self.isOpen();
 }
+
+OpenXLSX::XLStyles & XLDocument_styles(OpenXLSX::XLDocument &self) {
+    return self.styles();
+}

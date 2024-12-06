@@ -30,4 +30,13 @@ public struct XLCell {
             XLCell_setFormula(cell, newValue.formula)
         }
     }
+
+    public var cellFormat: Int {
+        get {
+            return XLCell_cellFormat(cell)
+        }
+        nonmutating set {
+            XLCell_setCellFormat(cell, newValue)
+        }
+    }
 }

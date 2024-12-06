@@ -1,3 +1,4 @@
+import Foundation
 import CxxSwiftXLSX
 
 public enum XLCellValue: CustomStringConvertible {
@@ -50,5 +51,13 @@ public enum XLCellValue: CustomStringConvertible {
         case .error(let x): return x.description
         case .string(let x): return x.description
         }
+    }
+
+    public static func excelTimeToUnixTime(_ excel: Double) -> TimeInterval {
+        return (excel - 25569) * 86400
+    }
+
+    public static func unixTimeToExcelTime(_ unix: TimeInterval) -> Double {
+        return unix / 86400 + 25569
     }
 }
