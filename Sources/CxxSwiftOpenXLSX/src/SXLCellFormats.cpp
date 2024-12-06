@@ -9,3 +9,7 @@ size_t XLCellFormats_count(const OpenXLSX::XLCellFormats & self) {
 OpenXLSX::XLCellFormat XLCellFormats_cellFormatByIndex(const OpenXLSX::XLCellFormats & self, size_t index) {
     return self.cellFormatByIndex(index);
 }
+
+size_t XLCellFormats_create(OpenXLSX::XLCellFormats & self) {
+    return self.create();
+}
