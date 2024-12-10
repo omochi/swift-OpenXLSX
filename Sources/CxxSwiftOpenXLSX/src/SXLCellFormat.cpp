@@ -17,3 +17,19 @@ bool XLCellFormat_applyNumberFormat(const OpenXLSX::XLCellFormat & self) {
 void XLCellFormat_setApplyNumberFormat(const OpenXLSX::XLCellFormat & self, bool value) {
     const_cast<OpenXLSX::XLCellFormat &>(self).setApplyNumberFormat(value);
 }
+
+bool XLCellFormat_applyProtection(const OpenXLSX::XLCellFormat & self) {
+    return self.applyProtection();
+}
+
+void XLCellFormat_setApplyProtection(const OpenXLSX::XLCellFormat & self, bool value) {
+    const_cast<OpenXLSX::XLCellFormat &>(self).setApplyProtection(value);
+}
+
+bool XLCellFormat_locked(const OpenXLSX::XLCellFormat & self) {
+    return self.locked();
+}
+
+bool XLCellFormat_setLocked(const OpenXLSX::XLCellFormat & self, bool value) {
+    const_cast<OpenXLSX::XLCellFormat &>(self).setLocked(value);
+}
