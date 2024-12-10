@@ -29,4 +29,22 @@ public struct XLCellFormat {
             XLCellFormat_setApplyNumberFormat(format, newValue)
         }
     }
+
+    public var applyProtection: Bool {
+        get {
+            XLCellFormat_applyProtection(format)
+        }
+        nonmutating set {
+            XLCellFormat_setApplyProtection(format, newValue)
+        }
+    }
+
+    public var locked: Bool {
+        get {
+            XLCellFormat_locked(format)
+        }
+        nonmutating set {
+            XLCellFormat_setLocked(format, newValue)
+        }
+    }
 }
