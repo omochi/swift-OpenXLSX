@@ -50,8 +50,16 @@ public struct XLWorksheet {
     }
 
     public var columnCount: Int {
-        rows.reduce(0) { (s, x) in
-            max(s, x.cellCount)
+        rows.map(\.cellCount).reduce(0, max)
+    }
+
+    public func extList() -> String {
+        return String(XLWorksheet_extList(worksheet))
+    }
+
+    public func setExtList(xml: String) throws {
+        try withCxxException { (e) in
+            XLWorksheet_setExtList(worksheet, std.string(xml), &e)
         }
     }
 }
