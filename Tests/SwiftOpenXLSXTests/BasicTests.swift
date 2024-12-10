@@ -84,4 +84,13 @@ let moduleName = "SwiftOpenXLSXTests"
         try write()
         try read()
     }
+
+    @Test func testReadExtList() throws {
+        let path = URL(fileURLWithPath: "Tests/\(moduleName)/Resources/simple.xlsx")
+        let document = try XLDocument(path: path)
+        let sheet = try #require(document.workbook.worksheets[safe: 0])
+
+        let extList = sheet.extList()
+        #expect(extList == "<extLst />\n")
+    }
 }

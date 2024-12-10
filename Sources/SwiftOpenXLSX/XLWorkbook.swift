@@ -50,16 +50,20 @@ public struct XLWorkbook {
         }
     }
 
-    public func addWorksheet(name: String) throws {
+    public func addWorksheet(name: String) throws -> XLWorksheet {
         try withCxxException { (e) in
             XLWorkbook_addWorksheet(workbook, std.string(name), &e)
         }
+
+        return try worksheet(name: name)
     }
 
-    public func cloneSheet(existingName: String, newName: String) throws {
+    public func cloneSheet(existingName: String, newName: String) throws -> XLWorksheet {
         try withCxxException { (e) in
             XLWorkbook_cloneSheet(workbook, std.string(existingName), std.string(newName), &e)
         }
+
+        return try worksheet(name: newName)
     }
 
     public func indexOfSheet(name: String) -> Int? {

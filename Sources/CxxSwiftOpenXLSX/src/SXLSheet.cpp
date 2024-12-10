@@ -43,3 +43,15 @@ std::optional<OpenXLSX::XLRow> XLWorksheet_row(const OpenXLSX::XLWorksheet &self
         return std::nullopt;
     }
 }
+
+std::string XLWorksheet_extList(const OpenXLSX::XLWorksheet &self) {
+    return self.extList();
+}
+
+void XLWorksheet_setExtList(const OpenXLSX::XLWorksheet &self, const std::string & xml, std::optional<std::string> & error) {
+    try {
+        const_cast<XLWorksheet &>(self).setExtList(xml);
+    } catch (const std::exception & e) {
+        error = e.what();
+    }
+}
