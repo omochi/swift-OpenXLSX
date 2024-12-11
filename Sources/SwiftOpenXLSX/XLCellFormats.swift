@@ -23,8 +23,9 @@ public struct XLCellFormats: BidirectionalCollection {
         )
     }
 
-    public func create() -> Int {
-        return Int(XLCellFormats_create(&formats.pointee))
+    public func create() -> XLCellFormat {
+        let index = Int(XLCellFormats_create(&formats.pointee))
+        return self[index]
     }
 
     public var startIndex: Int { 0 }
