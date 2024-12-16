@@ -12,3 +12,4 @@ std::optional<OpenXLSX::XLRow> XLWorksheet_row(const OpenXLSX::XLWorksheet &self
 std::string XLWorksheet_extList(const OpenXLSX::XLWorksheet &self);
 void XLWorksheet_setExtList(const OpenXLSX::XLWorksheet &self, const std::string & xml, std::optional<std::string> & error);
 
+std::optional<OpenXLSX::XLColumn> XLWorksheet_column(const OpenXLSX::XLWorksheet &self, uint16_t column, std::optional<std::string> & error);

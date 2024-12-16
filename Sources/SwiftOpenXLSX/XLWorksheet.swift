@@ -50,7 +50,14 @@ public struct XLWorksheet {
     }
 
     public var columnCount: Int {
-        rows.map(\.cellCount).reduce(0, max)
+        Int(worksheet.columnCount())
+    }
+
+    public func column(_ column: Int) throws -> XLColumn {
+        let column = try withCxxOptionalOrException { (e) in
+            XLWorksheet_column(worksheet, UInt16(column), &e)
+        }
+        return XLColumn(document: document, column: column)
     }
 
     public func extList() -> String {
