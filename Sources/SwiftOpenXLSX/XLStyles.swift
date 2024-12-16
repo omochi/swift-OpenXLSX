@@ -12,10 +12,17 @@ public struct XLStyles {
     var document: XLDocument
     var styles: UnsafeMutablePointer<OpenXLSX.XLStyles>
 
+    public var numberFormats: XLNumberFormats {
+        return XLNumberFormats(
+            document: document,
+            formats: XLStyles_numberFormats(styles.pointee).pointee
+        )
+    }
+
     public var cellFormats: XLCellFormats {
         return XLCellFormats(
             document: document,
-            formats: XLStyles_cellFormats(styles.pointee)
+            formats: XLStyles_cellFormats(styles.pointee).pointee
         )
     }
 }

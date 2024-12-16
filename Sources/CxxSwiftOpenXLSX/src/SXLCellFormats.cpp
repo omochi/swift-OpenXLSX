@@ -10,6 +10,6 @@ OpenXLSX::XLCellFormat XLCellFormats_cellFormatByIndex(const OpenXLSX::XLCellFor
     return self.cellFormatByIndex(index);
 }
 
-size_t XLCellFormats_create(OpenXLSX::XLCellFormats & self) {
-    return self.create();
+size_t XLCellFormats_create(const OpenXLSX::XLCellFormats & self) {
+    return const_cast<XLCellFormats &>(self).create();
 }

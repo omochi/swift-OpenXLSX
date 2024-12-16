@@ -3,28 +3,28 @@ import CxxSwiftXLSX
 public struct XLCellFormats: BidirectionalCollection {
     init(
         document: XLDocument,
-        formats: UnsafeMutablePointer<OpenXLSX.XLCellFormats>
+        formats: OpenXLSX.XLCellFormats
     ) {
         self.document = document
         self.formats = formats
     }
     
     var document: XLDocument
-    var formats: UnsafeMutablePointer<OpenXLSX.XLCellFormats>
+    var formats: OpenXLSX.XLCellFormats
 
     public var count: Int {
-        XLCellFormats_count(formats.pointee)
+        XLCellFormats_count(formats)
     }
 
     public subscript(index: Int) -> XLCellFormat {
         return XLCellFormat(
             document: document,
-            format: XLCellFormats_cellFormatByIndex(formats.pointee, index)
+            format: XLCellFormats_cellFormatByIndex(formats, index)
         )
     }
 
     public func create() -> XLCellFormat {
-        let index = Int(XLCellFormats_create(&formats.pointee))
+        let index = Int(XLCellFormats_create(formats))
         return self[index]
     }
 
