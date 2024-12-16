@@ -3,10 +3,11 @@ import Foundation
 import SwiftOpenXLSX
 
 let moduleName = "SwiftOpenXLSXTests"
+let resourceDir = URL(fileURLWithPath: "Tests/\(moduleName)/Resources")
 
 @Suite struct BasicTests {
     @Test func readSimple() throws {
-        let path = URL(fileURLWithPath: "Tests/\(moduleName)/Resources/simple.xlsx")
+        let path = resourceDir.appendingPathComponent("simple.xlsx")
         let document = try XLDocument(path: path)
 
         let sheets = try document.workbook.worksheets
@@ -42,7 +43,7 @@ let moduleName = "SwiftOpenXLSXTests"
     }
 
     @Test func readFormula() throws {
-        let path = URL(fileURLWithPath: "Tests/\(moduleName)/Resources/formula.xlsx")
+        let path = resourceDir.appendingPathComponent("formula.xlsx")
         let document = try XLDocument(path: path)
 
         let sheet = try #require(document.workbook.worksheets.first)
@@ -85,7 +86,7 @@ let moduleName = "SwiftOpenXLSXTests"
     }
 
     @Test func testReadExtList() throws {
-        let path = URL(fileURLWithPath: "Tests/\(moduleName)/Resources/simple.xlsx")
+        let path = resourceDir.appendingPathComponent("simple.xlsx")
         let document = try XLDocument(path: path)
         let sheet = try #require(document.workbook.worksheets[safe: 0])
 
