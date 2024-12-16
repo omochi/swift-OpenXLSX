@@ -66,8 +66,7 @@ let moduleName = "SwiftOpenXLSXTests"
             try document.create(path: path)
             let sheet1 = try document.workbook.worksheet(name: "Sheet1")
             try sheet1.cell(row: 1, column: 1).value = .string("hello")
-            try document.workbook.addWorksheet(name: "Sheet2")
-            let sheet2 = try document.workbook.worksheet(name: "Sheet2")
+            let sheet2 = try document.workbook.addWorksheet(name: "Sheet2")
             try sheet2.cell(row: 1, column: 1).value = .string("world")
             try document.save()
         }
