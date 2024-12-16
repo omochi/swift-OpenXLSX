@@ -3,14 +3,14 @@ import CxxSwiftXLSX
 public struct XLCellFormats: BidirectionalCollection {
     init(
         document: XLDocument,
-        formats: OpenXLSX.XLCellFormats
+        formats: UnsafeMutablePointer<OpenXLSX.XLCellFormats>
     ) {
         self.document = document
         self.formats = formats
     }
     
     var document: XLDocument
-    var formats: OpenXLSX.XLCellFormats
+    var formats: UnsafeMutablePointer<OpenXLSX.XLCellFormats>
 
     public var count: Int {
         XLCellFormats_count(formats)

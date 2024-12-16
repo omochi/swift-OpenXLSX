@@ -15,14 +15,14 @@ public struct XLStyles {
     public var numberFormats: XLNumberFormats {
         return XLNumberFormats(
             document: document,
-            formats: XLStyles_numberFormats(styles.pointee).pointee
+            formats: XLStyles_numberFormats(styles.pointee)
         )
     }
 
     public var cellFormats: XLCellFormats {
         return XLCellFormats(
             document: document,
-            formats: XLStyles_cellFormats(styles.pointee).pointee
+            formats: XLStyles_cellFormats(styles.pointee)
         )
     }
 }
