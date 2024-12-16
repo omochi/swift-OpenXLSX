@@ -3,6 +3,8 @@
 #include "./SXLCellFormats.hpp"
 #include "./SXLCellValue.hpp"
 #include "./SXLCellReference.hpp"
+#include "./SXLCellValue.hpp"
+#include "./SXLColumn.hpp"
 #include "./SXLCommon.hpp"
 #include "./SXLDocument.hpp"
 #include "./SXLException.hpp"

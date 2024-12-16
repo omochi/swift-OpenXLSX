@@ -40,3 +40,11 @@ void XLWorksheet_setExtList(const OpenXLSX::XLWorksheet &self, const std::string
     }
 }
 
+std::optional<OpenXLSX::XLColumn> XLWorksheet_column(const OpenXLSX::XLWorksheet &self, uint16_t column, std::optional<std::string> & error) {
+    try {
+        return self.column(column);
+    } catch (const std::exception & e) {
+        error = e.what();
+        return std::nullopt;
+    }
+}
