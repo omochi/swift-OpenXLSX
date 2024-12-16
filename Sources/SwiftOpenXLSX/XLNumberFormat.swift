@@ -13,7 +13,7 @@ public struct XLNumberFormat {
         get {
             Int(XLNumberFormat_numberFormatId(format))
         }
-        set {
+        nonmutating set {
             XLNumberFormat_setNumberFormatId(format, UInt32(newValue))
         }
     }
@@ -22,7 +22,7 @@ public struct XLNumberFormat {
         get {
             String(XLNumberFormat_formatCode(format))
         }
-        set {
+        nonmutating set {
             XLNumberFormat_setFormatCode(format, std.string(newValue))
         }
     }
