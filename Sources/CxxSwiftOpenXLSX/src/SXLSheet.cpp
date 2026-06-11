@@ -2,18 +2,18 @@
 
 using namespace OpenXLSX;
 
-bool XLSheet_isWorksheet(const OpenXLSX::XLSheet &self) {
+bool XLSheet_isWorksheet(const OpenXLSX::XLSheet &self) noexcept {
     return self.isType<XLWorksheet>();
 }
 
-bool XLSheet_isChartsheet(const OpenXLSX::XLSheet &self) {
+bool XLSheet_isChartsheet(const OpenXLSX::XLSheet &self) noexcept {
     return self.isType<XLChartsheet>();
 }
 
-OpenXLSX::XLWorksheet XLSheet_getWorksheet(const OpenXLSX::XLSheet &self) {
+OpenXLSX::XLWorksheet XLSheet_getWorksheet(const OpenXLSX::XLSheet &self) noexcept {
     return self.get<XLWorksheet>();
 }
 
-OpenXLSX::XLChartsheet XLSheet_getChartsheet(const OpenXLSX::XLSheet &self) {
+OpenXLSX::XLChartsheet XLSheet_getChartsheet(const OpenXLSX::XLSheet &self) noexcept {
     return self.get<XLChartsheet>();
 }

@@ -19,7 +19,7 @@ public struct XLWorksheet {
     }
 
     public func cell(_ reference: XLCellReference) throws -> XLCell {
-        let cell = try withCxxOptionalOrException { (e) in
+        let cell = try withCxxOptionalOrException { e in
             XLWorksheet_cell(worksheet, reference.ref, &e)
         }
 
@@ -39,7 +39,7 @@ public struct XLWorksheet {
     }
 
     public func row(_ row: Int) throws -> XLRow {
-        let row = try withCxxOptionalOrException { (e) in
+        let row = try withCxxOptionalOrException { e in
             XLWorksheet_row(worksheet, UInt32(row), &e)
         }
         return XLRow(document: document, row: row)
@@ -54,7 +54,7 @@ public struct XLWorksheet {
     }
 
     public func column(_ column: Int) throws -> XLColumn {
-        let column = try withCxxOptionalOrException { (e) in
+        let column = try withCxxOptionalOrException { e in
             XLWorksheet_column(worksheet, UInt16(column), &e)
         }
         return XLColumn(document: document, column: column)
@@ -65,7 +65,7 @@ public struct XLWorksheet {
     }
 
     public func setExtList(xml: String) throws {
-        try withCxxException { (e) in
+        try withCxxException { e in
             XLWorksheet_setExtList(worksheet, std.string(xml), &e)
         }
     }

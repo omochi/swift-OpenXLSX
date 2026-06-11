@@ -34,25 +34,25 @@ public final class XLDocument {
     }
 
     public func open(path: URL) throws {
-        try withCxxException { (e) in
+        try withCxxException { e in
             XLDocument_open(&document.pointee, std.string(path.path), &e)
         }
     }
 
     public func create(path: URL, forceOverwrite: Bool = true) throws {
-        try withCxxException { (e) in
+        try withCxxException { e in
             XLDocument_create(&document.pointee, std.string(path.path), forceOverwrite, &e)
         }
     }
 
     public func save() throws {
-        try withCxxException { (e) in
+        try withCxxException { e in
             XLDocument_save(&document.pointee, &e)
         }
     }
 
     public func saveAs(path: URL, forceOverwrite: Bool = true) throws {
-        try withCxxException { (e) in
+        try withCxxException { e in
             XLDocument_saveAs(&document.pointee, std.string(path.path), forceOverwrite, &e)
         }
     }

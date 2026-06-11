@@ -2,10 +2,10 @@
 
 using namespace OpenXLSX;
 
-float XLColumn_width(const XLColumn & self) {
+float XLColumn_width(const XLColumn & self) noexcept {
     return self.width();
 }
 
-void XLColumn_setWidth(const XLColumn & self, float width) {
+void XLColumn_setWidth(const XLColumn & self, float width) noexcept {
     const_cast<XLColumn &>(self).setWidth(width);
 }

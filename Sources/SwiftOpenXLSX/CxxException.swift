@@ -1,28 +1,50 @@
 import CxxSwiftXLSX
 
-struct CxxException: Error & CustomStringConvertible {
-    init(what: String) {
-        self.what = what
+extension std.exception_ptr {
+    var boolValue: Bool {
+        SXL_std_exception_ptr_boolValue(self)
     }
 
-    var what: String
+    var typeName: String? {
+        Optional(fromCxx: SXL_std_exception_ptr_typeName(self)).map(\.description)
+    }
 
-    var description: String { what }
+    var what: String? {
+        Optional(fromCxx: SXL_std_exception_ptr_what(self)).map(\.description)
+    }
 }
 
-func withCxxException<R>(_ body: (inout string_optional) -> R) throws -> R {
-    var error = string_optional()
+struct CxxException: Error & CustomStringConvertible, @unchecked Sendable {
+    init(_ error: std.exception_ptr) {
+        self.error = error
+    }
+
+    var error: std.exception_ptr
+
+    var description: String {
+        var string: String = error.typeName ?? "Unknown C++ Exception"
+
+        if let what = error.what {
+            string += ": \(what)"
+        }
+
+        return string
+    }
+}
+
+func withCxxException<R>(_ body: (inout std.exception_ptr) -> R) throws -> R {
+    var error = std.exception_ptr()
 
     let result = body(&error)
 
-    if let message = Optional(fromCxx: error) {
-        throw CxxException(what: String(message))
+    if error.boolValue {
+        throw CxxException(error)
     }
 
     return result
 }
 
-func withCxxOptionalOrException<R>(_ body: (inout string_optional) -> some CxxOptional<R>) throws -> R {
+func withCxxOptionalOrException<R>(_ body: (inout std.exception_ptr) -> some CxxOptional<R>) throws -> R {
     let result = try withCxxException(body)
     return Optional(fromCxx: result)!
 }

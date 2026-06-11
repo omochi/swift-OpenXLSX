@@ -1,19 +1,18 @@
 import CxxSwiftXLSX
 
-public struct XLCellReference:
-    Equatable & Hashable & Comparable &
-    CustomStringConvertible
+public struct XLCellReference: Equatable & Hashable & Comparable
+    & CustomStringConvertible
 {
     var ref: OpenXLSX.XLCellReference
 
     public init(address: String) throws {
-        ref = try withCxxOptionalOrException { (e) in
+        ref = try withCxxOptionalOrException { e in
             XLCellReference_init(std.string(address), &e)
         }
     }
 
     public init(row: Int, column: Int) throws {
-        ref = try withCxxOptionalOrException { (e) in
+        ref = try withCxxOptionalOrException { e in
             XLCellReference_init(UInt32(row), UInt16(column), &e)
         }
     }
@@ -30,7 +29,7 @@ public struct XLCellReference:
     }
 
     public mutating func setRow(_ value: Int) throws {
-        try withCxxException { (e) in
+        try withCxxException { e in
             XLCellReference_setRow(&ref, UInt32(value), &e)
         }
     }
@@ -40,7 +39,7 @@ public struct XLCellReference:
     }
 
     public mutating func setColumn(_ value: Int) throws {
-        try withCxxException { (e) in
+        try withCxxException { e in
             XLCellReference_setColumn(&ref, UInt16(value), &e)
         }
     }
@@ -50,7 +49,7 @@ public struct XLCellReference:
     }
 
     public mutating func setAddress(_ value: String) throws {
-        try withCxxException { (e) in
+        try withCxxException { e in
             XLCellReference_setAddress(&ref, std.string(value), &e)
         }
     }

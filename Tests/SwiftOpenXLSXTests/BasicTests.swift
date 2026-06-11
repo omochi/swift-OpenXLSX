@@ -36,9 +36,9 @@ let resourceDir = URL(fileURLWithPath: "Tests/\(moduleName)/Resources")
 
         #expect(sheet.rowCount == 2)
         #expect(sheet.columnCount == 3)
-        let row0 = try #require(try sheet.row(1))
+        let row0 = try sheet.row(1)
         #expect(row0.cellCount == 3)
-        let row1 = try #require(try sheet.row(2))
+        let row1 = try sheet.row(2)
         #expect(row1.cellCount == 3)
     }
 

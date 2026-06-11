@@ -2,58 +2,58 @@
 
 using namespace OpenXLSX;
 
-OpenXLSX::XLDocument * XLDocument_new() {
+OpenXLSX::XLDocument * XLDocument_new() noexcept {
     return new XLDocument();
 }
 
-void XLDocument_delete(OpenXLSX::XLDocument *self) {
+void XLDocument_delete(OpenXLSX::XLDocument *self) noexcept {
     delete self;
 }
 
-void XLDocument_suppressWarnings(OpenXLSX::XLDocument &self) {
+void XLDocument_suppressWarnings(OpenXLSX::XLDocument &self) noexcept {
     self.suppressWarnings();
 }
 
-void XLDocument_open(OpenXLSX::XLDocument &self, const std::string &docPath, std::optional<std::string> & error) {
+void XLDocument_open(OpenXLSX::XLDocument &self, const std::string &docPath, std::exception_ptr & error) noexcept {
     try {
         self.open(docPath);
-    } catch (const std::exception & e) {
-        error = e.what();
+    } catch (...) {
+        error = std::current_exception();
     }
 }
 
-void XLDocument_create(OpenXLSX::XLDocument &self, const std::string& fileName, bool forceOverwrite, std::optional<std::string> & error) {
+void XLDocument_create(OpenXLSX::XLDocument &self, const std::string& fileName, bool forceOverwrite, std::exception_ptr & error) noexcept {
     try {
         self.create(fileName, forceOverwrite);
-    } catch (const std::exception & e) {
-        error = e.what();
+    } catch (...) {
+        error = std::current_exception();
     }
 }
 
-void XLDocument_save(OpenXLSX::XLDocument &self, std::optional<std::string> & error) {
+void XLDocument_save(OpenXLSX::XLDocument &self, std::exception_ptr & error) noexcept {
     try {
         self.save();
-    } catch (const std::exception & e) {
-        error = e.what();
+    } catch (...) {
+        error = std::current_exception();
     }
 }
 
-void XLDocument_saveAs(OpenXLSX::XLDocument &self, const std::string& fileName, bool forceOverwrite, std::optional<std::string> & error) {
+void XLDocument_saveAs(OpenXLSX::XLDocument &self, const std::string& fileName, bool forceOverwrite, std::exception_ptr & error) noexcept {
     try {
         self.saveAs(fileName, forceOverwrite);
-    } catch (const std::exception & e) {
-        error = e.what();
+    } catch (...) {
+        error = std::current_exception();
     }
 }
 
-OpenXLSX::XLWorkbook XLDocument_workbook(const OpenXLSX::XLDocument &self) {
+OpenXLSX::XLWorkbook XLDocument_workbook(const OpenXLSX::XLDocument &self) noexcept {
     return self.workbook();
 }
 
-bool XLDocument_isOpen(const OpenXLSX::XLDocument &self) {
+bool XLDocument_isOpen(const OpenXLSX::XLDocument &self) noexcept {
     return self.isOpen();
 }
 
-OpenXLSX::XLStyles & XLDocument_styles(OpenXLSX::XLDocument &self) {
+OpenXLSX::XLStyles & XLDocument_styles(OpenXLSX::XLDocument &self) noexcept {
     return self.styles();
 }
