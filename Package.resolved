@@ -1,13 +1,31 @@
 {
-  "originHash" : "3b681de661e03cc79e8c4613fb38fd2163a15a6df0c7152d2d015d06b7d9c3ce",
+  "originHash" : "57ec188c78df19627889dae84b00733c04ccf22e5d9a85b87445fca89e6f0fa6",
   "pins" : [
+    {
+      "identity" : "miniz",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/omochi/miniz.git",
+      "state" : {
+        "branch" : "swiftpm",
+        "revision" : "4ad1e832065b78a894c86660d48801cb92289abd"
+      }
+    },
     {
       "identity" : "openxlsx",
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/omochi/OpenXLSX.git",
       "state" : {
         "branch" : "swiftpm",
-        "revision" : "172ad55956b76af6e632411f404a8050a8433dca"
+        "revision" : "4447b0a49201136cce616ccd5aded531006d6208"
+      }
+    },
+    {
+      "identity" : "pugixml",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/omochi/pugixml.git",
+      "state" : {
+        "branch" : "swiftpm",
+        "revision" : "c5138964e4ef740be2f7a91aeb49cffa06e1d5c1"
       }
     }
   ],

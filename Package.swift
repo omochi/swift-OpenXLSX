@@ -3,6 +3,9 @@ import PackageDescription
 
 let package = Package(
     name: "swift-OpenXLSX",
+    platforms: [
+        .macOS(.v10_15)
+    ],
     products: [
         .library(name: "SwiftOpenXLSX", targets: ["SwiftOpenXLSX"])
     ],
