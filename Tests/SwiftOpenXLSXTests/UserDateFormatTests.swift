@@ -12,7 +12,6 @@ import SwiftOpenXLSX
         let cell = try sheet.cell(row: 1, column: 1)
 
         let cellFormat = try #require(doc.styles.cellFormats[safe: cell.cellFormat])
-        print(cellFormat.numberFormatID)
 
         let numberFormat = try #require(doc.styles.numberFormats.first { $0.numberFormatID == cellFormat.numberFormatID })
 
