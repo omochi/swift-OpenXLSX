@@ -30,6 +30,6 @@ bool XLCellFormat_locked(const OpenXLSX::XLCellFormat & self) {
     return self.locked();
 }
 
-bool XLCellFormat_setLocked(const OpenXLSX::XLCellFormat & self, bool value) {
+void XLCellFormat_setLocked(const OpenXLSX::XLCellFormat & self, bool value) {
     const_cast<OpenXLSX::XLCellFormat &>(self).setLocked(value);
 }
