@@ -2,19 +2,19 @@
 
 using namespace OpenXLSX;
 
-unsigned int XLWorkbook_sheetCount(const OpenXLSX::XLWorkbook &self) {
+unsigned int XLWorkbook_sheetCount(const OpenXLSX::XLWorkbook &self) noexcept {
     return self.sheetCount();
 }
 
-OpenXLSX::XLSheet XLWorkbook_sheet(const OpenXLSX::XLWorkbook &self, uint16_t index) {
+OpenXLSX::XLSheet XLWorkbook_sheet(const OpenXLSX::XLWorkbook &self, uint16_t index) noexcept {
     return const_cast<XLWorkbook &>(self).sheet(index);
 }
 
-std::vector<std::string> XLWorkbook_sheetNames(const OpenXLSX::XLWorkbook &self) {
+std::vector<std::string> XLWorkbook_sheetNames(const OpenXLSX::XLWorkbook &self) noexcept {
     return self.sheetNames();
 }
 
-std::optional<OpenXLSX::XLSheet> XLWorkbook_sheet(const OpenXLSX::XLWorkbook &self, const std::string & name, std::exception_ptr & error) {
+std::optional<OpenXLSX::XLSheet> XLWorkbook_sheet(const OpenXLSX::XLWorkbook &self, const std::string & name, std::exception_ptr & error) noexcept {
     try {
         return const_cast<XLWorkbook &>(self).sheet(name);
     } catch (...) {
@@ -23,7 +23,7 @@ std::optional<OpenXLSX::XLSheet> XLWorkbook_sheet(const OpenXLSX::XLWorkbook &se
     }
 }
 
-std::optional<OpenXLSX::XLWorksheet> XLWorkbook_worksheet(const OpenXLSX::XLWorkbook &self, const std::string& sheetName, std::exception_ptr & error) {
+std::optional<OpenXLSX::XLWorksheet> XLWorkbook_worksheet(const OpenXLSX::XLWorkbook &self, const std::string& sheetName, std::exception_ptr & error) noexcept {
     try {
         return const_cast<XLWorkbook &>(self).worksheet(sheetName);
     } catch (...) {
@@ -32,7 +32,7 @@ std::optional<OpenXLSX::XLWorksheet> XLWorkbook_worksheet(const OpenXLSX::XLWork
     }
 }
 
-void XLWorkbook_deleteSheet(const OpenXLSX::XLWorkbook &self, const std::string & name, std::exception_ptr & error) {
+void XLWorkbook_deleteSheet(const OpenXLSX::XLWorkbook &self, const std::string & name, std::exception_ptr & error) noexcept {
     try {
         return const_cast<XLWorkbook &>(self).deleteSheet(name);
     } catch (...) {
@@ -40,7 +40,7 @@ void XLWorkbook_deleteSheet(const OpenXLSX::XLWorkbook &self, const std::string 
     }
 }
 
-void XLWorkbook_addWorksheet(const OpenXLSX::XLWorkbook &self, const std::string & name, std::exception_ptr & error) {
+void XLWorkbook_addWorksheet(const OpenXLSX::XLWorkbook &self, const std::string & name, std::exception_ptr & error) noexcept {
     try {
         return const_cast<XLWorkbook &>(self).addWorksheet(name);
     } catch (...) {
@@ -48,7 +48,7 @@ void XLWorkbook_addWorksheet(const OpenXLSX::XLWorkbook &self, const std::string
     }
 }
 
-void XLWorkbook_cloneSheet(const OpenXLSX::XLWorkbook &self, const std::string& existingName, const std::string& newName, std::exception_ptr & error) {
+void XLWorkbook_cloneSheet(const OpenXLSX::XLWorkbook &self, const std::string& existingName, const std::string& newName, std::exception_ptr & error) noexcept {
     try {
         return const_cast<XLWorkbook &>(self).cloneSheet(existingName, newName);
     } catch (...) {
@@ -56,7 +56,7 @@ void XLWorkbook_cloneSheet(const OpenXLSX::XLWorkbook &self, const std::string& 
     }
 }
 
-std::optional<unsigned int> XLWorkbook_indexOfSheet(const OpenXLSX::XLWorkbook &self, const std::string& sheetName, std::exception_ptr & error) {
+std::optional<unsigned int> XLWorkbook_indexOfSheet(const OpenXLSX::XLWorkbook &self, const std::string& sheetName, std::exception_ptr & error) noexcept {
     try {
         return self.indexOfSheet(sheetName);
     } catch (...) {
@@ -65,7 +65,7 @@ std::optional<unsigned int> XLWorkbook_indexOfSheet(const OpenXLSX::XLWorkbook &
     }
 }
 
-void XLWorkbook_setSheetIndex(const OpenXLSX::XLWorkbook &self, const std::string& sheetName, unsigned int index, std::exception_ptr & error) {
+void XLWorkbook_setSheetIndex(const OpenXLSX::XLWorkbook &self, const std::string& sheetName, unsigned int index, std::exception_ptr & error) noexcept {
     try {
         const_cast<XLWorkbook &>(self).setSheetIndex(sheetName, index);
     } catch (...) {

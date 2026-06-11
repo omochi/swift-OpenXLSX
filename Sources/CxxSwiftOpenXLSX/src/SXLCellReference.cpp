@@ -2,7 +2,7 @@
 
 using namespace OpenXLSX;
 
-std::optional<OpenXLSX::XLCellReference> XLCellReference_init(const std::string & address, std::exception_ptr & error) {
+std::optional<OpenXLSX::XLCellReference> XLCellReference_init(const std::string & address, std::exception_ptr & error) noexcept {
     try {
         return XLCellReference(address);
     } catch (...) {
@@ -11,7 +11,7 @@ std::optional<OpenXLSX::XLCellReference> XLCellReference_init(const std::string 
     }
 }
 
-std::optional<OpenXLSX::XLCellReference> XLCellReference_init(uint32_t row, uint16_t column, std::exception_ptr & error) {
+std::optional<OpenXLSX::XLCellReference> XLCellReference_init(uint32_t row, uint16_t column, std::exception_ptr & error) noexcept {
     try {
         return XLCellReference(row, column);
     } catch (...) {
@@ -20,7 +20,7 @@ std::optional<OpenXLSX::XLCellReference> XLCellReference_init(uint32_t row, uint
     }
 }
 
-void XLCellReference_setRow(OpenXLSX::XLCellReference & self, uint32_t value, std::exception_ptr & error) {
+void XLCellReference_setRow(OpenXLSX::XLCellReference & self, uint32_t value, std::exception_ptr & error) noexcept {
     try {
         self.setRow(value);
     } catch (...) {
@@ -28,7 +28,7 @@ void XLCellReference_setRow(OpenXLSX::XLCellReference & self, uint32_t value, st
     }
 }
 
-void XLCellReference_setColumn(OpenXLSX::XLCellReference & self, uint16_t value, std::exception_ptr & error) {
+void XLCellReference_setColumn(OpenXLSX::XLCellReference & self, uint16_t value, std::exception_ptr & error) noexcept {
     try {
         self.setColumn(value);
     } catch (...) {
@@ -36,7 +36,7 @@ void XLCellReference_setColumn(OpenXLSX::XLCellReference & self, uint16_t value,
     }
 }
 
-void XLCellReference_setAddress(OpenXLSX::XLCellReference & self, const std::string & value, std::exception_ptr & error) {
+void XLCellReference_setAddress(OpenXLSX::XLCellReference & self, const std::string & value, std::exception_ptr & error) noexcept {
     try {
         self.setAddress(value);
     } catch (...) {

@@ -2,15 +2,15 @@
 
 using namespace OpenXLSX;
 
-std::string XLWorksheet_name(const OpenXLSX::XLWorksheet &self) {
+std::string XLWorksheet_name(const OpenXLSX::XLWorksheet &self) noexcept {
     return self.name();
 }
 
-void XLWorksheet_setName(const OpenXLSX::XLWorksheet &self, const std::string & name) {
+void XLWorksheet_setName(const OpenXLSX::XLWorksheet &self, const std::string & name) noexcept {
     const_cast<XLWorksheet &>(self).setName(name);
 }
 
-std::optional<OpenXLSX::XLCell> XLWorksheet_cell(const OpenXLSX::XLWorksheet &self, const OpenXLSX::XLCellReference& ref, std::exception_ptr & error) {
+std::optional<OpenXLSX::XLCell> XLWorksheet_cell(const OpenXLSX::XLWorksheet &self, const OpenXLSX::XLCellReference& ref, std::exception_ptr & error) noexcept {
     try {
         return self.cell(ref);
     } catch (...) {
@@ -19,7 +19,7 @@ std::optional<OpenXLSX::XLCell> XLWorksheet_cell(const OpenXLSX::XLWorksheet &se
     }
 }
 
-std::optional<OpenXLSX::XLRow> XLWorksheet_row(const OpenXLSX::XLWorksheet &self, uint32_t row, std::exception_ptr & error) {
+std::optional<OpenXLSX::XLRow> XLWorksheet_row(const OpenXLSX::XLWorksheet &self, uint32_t row, std::exception_ptr & error) noexcept {
     try {
         return self.row(row);
     } catch (...) {
@@ -28,11 +28,11 @@ std::optional<OpenXLSX::XLRow> XLWorksheet_row(const OpenXLSX::XLWorksheet &self
     }
 }
 
-std::string XLWorksheet_extList(const OpenXLSX::XLWorksheet &self) {
+std::string XLWorksheet_extList(const OpenXLSX::XLWorksheet &self) noexcept {
     return self.extList();
 }
 
-void XLWorksheet_setExtList(const OpenXLSX::XLWorksheet &self, const std::string & xml, std::exception_ptr & error) {
+void XLWorksheet_setExtList(const OpenXLSX::XLWorksheet &self, const std::string & xml, std::exception_ptr & error) noexcept {
     try {
         const_cast<XLWorksheet &>(self).setExtList(xml);
     } catch (...) {
@@ -40,7 +40,7 @@ void XLWorksheet_setExtList(const OpenXLSX::XLWorksheet &self, const std::string
     }
 }
 
-std::optional<OpenXLSX::XLColumn> XLWorksheet_column(const OpenXLSX::XLWorksheet &self, uint16_t column, std::exception_ptr & error) {
+std::optional<OpenXLSX::XLColumn> XLWorksheet_column(const OpenXLSX::XLWorksheet &self, uint16_t column, std::exception_ptr & error) noexcept {
     try {
         return self.column(column);
     } catch (...) {

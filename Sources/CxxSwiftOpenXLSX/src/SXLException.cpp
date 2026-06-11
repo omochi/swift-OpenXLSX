@@ -21,11 +21,11 @@ namespace {
     }
 }
 
-bool SXL_std_exception_ptr_boolValue(const std::exception_ptr & self) {
+bool SXL_std_exception_ptr_boolValue(const std::exception_ptr & self) noexcept {
     return static_cast<bool>(self);
 }
 
-std::optional<std::string> SXL_std_exception_ptr_typeName(const std::exception_ptr & self) {
+std::optional<std::string> SXL_std_exception_ptr_typeName(const std::exception_ptr & self) noexcept {
     try {
         std::rethrow_exception(self);
     } catch (const std::exception & e) {
@@ -35,7 +35,7 @@ std::optional<std::string> SXL_std_exception_ptr_typeName(const std::exception_p
     }
 }
 
-std::optional<std::string> SXL_std_exception_ptr_what(const std::exception_ptr & self) {
+std::optional<std::string> SXL_std_exception_ptr_what(const std::exception_ptr & self) noexcept {
     try {
         std::rethrow_exception(self);
     } catch (const std::exception & e) {

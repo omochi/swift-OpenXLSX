@@ -2,6 +2,6 @@
 
 using namespace OpenXLSX;
 
-OpenXLSX::XLFormula XLFormula_init(const std::string & string) {
+OpenXLSX::XLFormula XLFormula_init(const std::string & string) noexcept {
     return XLFormula(string);
 }
