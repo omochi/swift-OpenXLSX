@@ -14,35 +14,35 @@ void XLDocument_suppressWarnings(OpenXLSX::XLDocument &self) {
     self.suppressWarnings();
 }
 
-void XLDocument_open(OpenXLSX::XLDocument &self, const std::string &docPath, std::optional<std::string> & error) {
+void XLDocument_open(OpenXLSX::XLDocument &self, const std::string &docPath, std::exception_ptr & error) {
     try {
         self.open(docPath);
-    } catch (const std::exception & e) {
-        error = e.what();
+    } catch (...) {
+        error = std::current_exception();
     }
 }
 
-void XLDocument_create(OpenXLSX::XLDocument &self, const std::string& fileName, bool forceOverwrite, std::optional<std::string> & error) {
+void XLDocument_create(OpenXLSX::XLDocument &self, const std::string& fileName, bool forceOverwrite, std::exception_ptr & error) {
     try {
         self.create(fileName, forceOverwrite);
-    } catch (const std::exception & e) {
-        error = e.what();
+    } catch (...) {
+        error = std::current_exception();
     }
 }
 
-void XLDocument_save(OpenXLSX::XLDocument &self, std::optional<std::string> & error) {
+void XLDocument_save(OpenXLSX::XLDocument &self, std::exception_ptr & error) {
     try {
         self.save();
-    } catch (const std::exception & e) {
-        error = e.what();
+    } catch (...) {
+        error = std::current_exception();
     }
 }
 
-void XLDocument_saveAs(OpenXLSX::XLDocument &self, const std::string& fileName, bool forceOverwrite, std::optional<std::string> & error) {
+void XLDocument_saveAs(OpenXLSX::XLDocument &self, const std::string& fileName, bool forceOverwrite, std::exception_ptr & error) {
     try {
         self.saveAs(fileName, forceOverwrite);
-    } catch (const std::exception & e) {
-        error = e.what();
+    } catch (...) {
+        error = std::current_exception();
     }
 }
 

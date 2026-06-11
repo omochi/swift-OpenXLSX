@@ -27,6 +27,7 @@ let package = Package(
         .testTarget(
             name: "SwiftOpenXLSXTests",
             dependencies: ["SwiftOpenXLSX"],
+            exclude: ["Resources"],
             swiftSettings: [
                 .interoperabilityMode(.Cxx)
             ]

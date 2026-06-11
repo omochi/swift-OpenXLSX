@@ -8,13 +8,13 @@ void XLDocument_delete(OpenXLSX::XLDocument *self);
 
 void XLDocument_suppressWarnings(OpenXLSX::XLDocument &self);
 
-void XLDocument_open(OpenXLSX::XLDocument &self, const std::string &docPath, std::optional<std::string> & error);
+void XLDocument_open(OpenXLSX::XLDocument &self, const std::string &docPath, std::exception_ptr & error);
 
-void XLDocument_create(OpenXLSX::XLDocument &self, const std::string& fileName, bool forceOverwrite, std::optional<std::string> & error);
+void XLDocument_create(OpenXLSX::XLDocument &self, const std::string& fileName, bool forceOverwrite, std::exception_ptr & error);
 
-void XLDocument_save(OpenXLSX::XLDocument &self, std::optional<std::string> & error);
+void XLDocument_save(OpenXLSX::XLDocument &self, std::exception_ptr & error);
 
-void XLDocument_saveAs(OpenXLSX::XLDocument &self, const std::string& fileName, bool forceOverwrite, std::optional<std::string> & error);
+void XLDocument_saveAs(OpenXLSX::XLDocument &self, const std::string& fileName, bool forceOverwrite, std::exception_ptr & error);
 
 OpenXLSX::XLWorkbook XLDocument_workbook(const OpenXLSX::XLDocument &self);
 

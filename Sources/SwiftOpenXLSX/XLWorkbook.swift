@@ -28,7 +28,7 @@ public struct XLWorkbook {
     }
 
     public func sheet(name: String) -> XLSheet? {
-        guard let sheet = try? withCxxException({ (e) in
+        guard let sheet = try? withCxxException({ e in
             Optional(
                 fromCxx: XLWorkbook_sheet(workbook, std.string(name), &e)
             )
@@ -38,20 +38,20 @@ public struct XLWorkbook {
     }
 
     public func worksheet(name: String) throws -> XLWorksheet {
-        let sheet = try withCxxOptionalOrException { (e) in
+        let sheet = try withCxxOptionalOrException { e in
             XLWorkbook_worksheet(workbook, std.string(name), &e)
         }
         return XLWorksheet(document: document, worksheet: sheet)
     }
 
     public func deleteSheet(name: String) throws {
-        try withCxxException { (e) in
+        try withCxxException { e in
             XLWorkbook_deleteSheet(workbook, std.string(name), &e)
         }
     }
 
     public func addWorksheet(name: String) throws -> XLWorksheet {
-        try withCxxException { (e) in
+        try withCxxException { e in
             XLWorkbook_addWorksheet(workbook, std.string(name), &e)
         }
 
@@ -59,7 +59,7 @@ public struct XLWorkbook {
     }
 
     public func cloneSheet(existingName: String, newName: String) throws -> XLWorksheet {
-        try withCxxException { (e) in
+        try withCxxException { e in
             XLWorkbook_cloneSheet(workbook, std.string(existingName), std.string(newName), &e)
         }
 
@@ -67,7 +67,7 @@ public struct XLWorkbook {
     }
 
     public func indexOfSheet(name: String) -> Int? {
-        guard let index = try? withCxxException({ (e) in
+        guard let index = try? withCxxException({ e in
             Optional(
                 fromCxx: XLWorkbook_indexOfSheet(workbook, std.string(name), &e)
             )
@@ -77,7 +77,7 @@ public struct XLWorkbook {
     }
 
     public func setSheetIndex(name: String, index: Int) throws {
-        try withCxxException { (e) in
+        try withCxxException { e in
             XLWorkbook_setSheetIndex(workbook, std.string(name), UInt32(index), &e)
         }
     }
