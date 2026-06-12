@@ -85,6 +85,36 @@ let resourceDir = URL(fileURLWithPath: "Tests/\(moduleName)/Resources")
         try read()
     }
 
+    @Test func writeAndReadColumnFormat() throws {
+        let temp = try createTemporaryDirectory(prefix: "\(moduleName)/BasicTests")
+        defer {
+            try? FileManager.default.removeItem(at: temp)
+        }
+
+        let path = temp.appendingPathComponent("column-format.xlsx")
+        let styleIndex: Int
+
+        do {
+            let document = XLDocument()
+            try document.create(path: path)
+            let sheet = try document.workbook.worksheet(name: "Sheet1")
+
+            styleIndex = document.styles.cellFormats.count
+            let format = document.styles.cellFormats.create()
+            format.numberFormatID = 49
+            format.applyNumberFormat = true
+
+            try sheet.column(1).format = styleIndex
+            try document.save()
+        }
+
+        do {
+            let document = try XLDocument(path: path)
+            let sheet = try document.workbook.worksheet(name: "Sheet1")
+            #expect(try sheet.column(1).format == styleIndex)
+        }
+    }
+
     @Test func testReadExtList() throws {
         let path = resourceDir.appendingPathComponent("simple.xlsx")
         let document = try XLDocument(path: path)

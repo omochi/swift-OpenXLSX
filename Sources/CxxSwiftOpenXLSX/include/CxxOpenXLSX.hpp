@@ -1,6 +1,7 @@
 #include "./SXLCell.hpp"
 #include "./SXLCellFormat.hpp"
 #include "./SXLCellFormats.hpp"
+#include "./SXLConstants.hpp"
 #include "./SXLCellValue.hpp"
 #include "./SXLCellReference.hpp"
 #include "./SXLCellValue.hpp"
