@@ -17,4 +17,13 @@ public struct XLColumn {
             XLColumn_setWidth(column, newValue)
         }
     }
+
+    public var format: Int {
+        get {
+            Int(XLColumn_format(column))
+        }
+        nonmutating set {
+            _ = XLColumn_setFormat(column, newValue)
+        }
+    }
 }
